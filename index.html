@@ -37,11 +37,25 @@
         }
         
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 50%, #000000 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: url('servers.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Dark overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* adjust darkness */
+    z-index: -1;
+}
         
         /* Hide scrollbar for webkit browsers */
         ::-webkit-scrollbar {
@@ -350,7 +364,7 @@
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
-            background: linear-gradient(90deg, #a855f7 0%, #ffffff 50%, #a855f7 100%);
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 50%, #43e97b 100%);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
