@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery — FlipDeck</title>
+
+  <style>
+    :root { --w: 150px; --h:250px; }
+    body { font-family: Inter, system-ui, -apple-system, sans-serif; background:transparent; color:#fff; }
+    .flipdeck { width:100%; height:300px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .flipdeck__list { list-style:none; padding:0; margin:0; width:100%; max-width:900px; height:300px; position:relative; perspective:400px; display:flex; align-items:center; justify-content:center; }
+    .flipdeck__item {
+      position:absolute; width:var(--w); height:var(--h); border-radius:12px; overflow:hidden; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; transition:all .32s cubic-bezier(.2,.9,.2,1);
+      border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03);
+      box-shadow: 0 6px 22px rgba(0,0,0,.28);
+    }
+    .flipdeck__item img{ width:100%; height:100%; object-fit:cover; display:block; border-radius:12px; }
+    .placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; color:rgba(255,255,255,.8); font-size:12px; width:100%; height:100%; text-align:center; }
+    /* positions (new names, but same layout) */
+    .flipdeck__item[data-pos="0"]{ z-index:6; transform:translateX(0) scale(1); opacity:1; filter:none; }
+    .flipdeck__item[data-pos="-1"]{ z-index:5; transform:translateX(-38%) scale(.92); opacity:.78; filter:blur(1px) grayscale(.08); }
+    .flipdeck__item[data-pos="1"]{ z-index:5; transform:translateX(38%) scale(.92); opacity:.78; filter:blur(1px) grayscale(.08); }
+    .flipdeck__item[data-pos="-2"]{ z-index:4; transform:translateX(-72%) scale(.82); opacity:.45; filter:blur(3px) grayscale(.18); }
+    .flipdeck__item[data-pos="2"]{ z-index:4; transform:translateX(72%) scale(.82); opacity:.45; filter:blur(3px) grayscale(.18); }
+  </style>
+</head>
+<body>
+  <div class="flipdeck" aria-label="image flipdeck">
+    <ul class="flipdeck__list" id="flipdeckList">
+      <li class="flipdeck__item" data-pos="-2">
+        <img src="images/1.jpg" alt="Image 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <span>Image 1</span>
+        </div>
+      </li>
+
+      <li class="flipdeck__item" data-pos="-1">
+        <img src="images/2.jpg" alt="Image 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none;"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Image 2</span></div>
+      </li>
+
+      <li class="flipdeck__item" data-pos="0">
+        <img src="images/3.jpg" alt="Image 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none;"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Image 3</span></div>
+      </li>
+
+      <li class="flipdeck__item" data-pos="1">
+        <img src="images/4.jpg" alt="Image 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none;"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Image 4</span></div>
+      </li>
+
+      <li class="flipdeck__item" data-pos="2">
+        <img src="images/5.jpg" alt="Image 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="placeholder" style="display:none;"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><span>Image 5</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // New class-based implementation that preserves original data-pos behavior
+    class FlipDeck {
+      constructor(listEl) {
+        this.list = listEl;
+        this.items = Array.from(this.list.querySelectorAll('.flipdeck__item'));
+        this.bind();
+      }
+
+      bind() {
+        this.list.addEventListener('click', (e) => {
+          const item = e.target.closest('.flipdeck__item');
+          if (!item) return;
+          // ignore clicks that target an already-centered item
+          if (item.dataset.pos === "0") return;
+          this.setActive(item);
+        });
+
+        // keyboard accessibility (left/right)
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') this.rotate(-1);
+          if (e.key === 'ArrowRight') this.rotate(1);
+        });
+      }
+
+      rotate(step) {
+        // move every data-pos by step (cyclically keep within [-2..2])
+        this.items.forEach(it => {
+          const cur = parseInt(it.dataset.pos, 10);
+          let next = cur - step;
+          if (next > 2) next = next - 5;      // wrap logic
+          if (next < -2) next = next + 5;
+          it.dataset.pos = String(next);
+        });
+      }
+
+      setActive(newActive) {
+        const newPos = parseInt(newActive.dataset.pos, 10);
+
+        // compute new positions by mapping current -> diff relative to newActive
+        const currentState = this.items.map(it => ({ el: it, pos: parseInt(it.dataset.pos,10) }));
+        currentState.forEach(({el, pos}) => {
+          const diff = pos - newPos;
+          // if |diff| > 2, wrap around by negating (preserves original look)
+          el.dataset.pos = (Math.abs(diff) > 2) ? String(-pos) : String(diff);
+        });
+      }
+    }
+
+    // Initialize when DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const list = document.getElementById('flipdeckList');
+      if (list) new FlipDeck(list);
+    });
+  </script>
+</body>
+</html>
