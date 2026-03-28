@@ -45,13 +45,13 @@
     .pill:hover{ transform:translateY(-4px) scale(1.03); box-shadow:0 10px 30px rgba(0,0,0,.25); }
 
     /* --- page container --- */
-    .wrap { max-width:920px; margin:40px auto; padding:28px; display:flex; flex-direction:column; gap:36px; }
+    .wrap { max-width:920px; margin:40px auto; padding:28px; display:flex; flex-direction:column; gap:48px; }
     .panel {
       background: rgba(255,255,255,.06); border-radius:18px; padding:28px;
       border:1px solid rgba(255,255,255,.08); backdrop-filter: blur(14px);
       transition: transform .2s ease, box-shadow .2s ease;
     }
-    .panel:hover{ transform:translateY(-6px); box-shadow:0 14px 40px rgba(0,0,0,.18); }
+    .panel:hover{ transform:translateY(-4px); box-shadow:0 14px 40px rgba(0,0,0,.18); }
 
     h1{
       font-size: clamp(2rem, 4vw, 3rem); font-weight:700;
@@ -92,6 +92,18 @@
     }
     .timeline-top { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:8px; }
     .muted { color:rgba(255,255,255,.72); }
+
+    .courses-box {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06);
+      display: grid;
+      gap: 8px;
+    }
+
+    .courses-box p { margin: 0; }
 
     /* projects grid */
     .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
@@ -215,14 +227,13 @@
             <p class="muted">San Jose, CA</p>
           </div>
           <p>Currently preparing to transfer to San Jose State University Fall 2026 to continue with a B.S in Computer Science.</p>
+
+          <div class="courses-box">
+            <p><strong>Relevant Courses Completed:</strong></p>
+            <p>Mathematics Courses: MATH-066, MATH-067, MATH-073</p>
+            <p>Computer Science Courses: COMSC-075, COMSC-076, COMSC-077</p>
+            <p>Science Courses: PHYS-007A, PHYS-007B</p>
           </div>
-          <div class="timeline-top">  
-          <div>
-          <p>Relevant Courses Completed:</p>
-          </div>
-          <p>Mathematics Courses: MATH-066, MATH-067, MATH-073</p>
-          <p>Computer Science Courses: COMSC-075, COMSC-076, COMSC-077</p>
-          <p>Science Courses: PHYS-007A, PHYS-007B</p>
         </article>
       </div>
     </section>
