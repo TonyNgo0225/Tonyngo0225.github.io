@@ -45,13 +45,13 @@
     .pill:hover{ transform:translateY(-4px) scale(1.03); box-shadow:0 10px 30px rgba(0,0,0,.25); }
 
     /* --- page container --- */
-    .wrap { max-width:920px; margin:40px auto; padding:28px; display:flex; flex-direction:column; gap:64px; }
+    .wrap { max-width:920px; margin:40px auto; padding:28px; display:flex; flex-direction:column; gap:48px; }
     .panel {
       background: rgba(255,255,255,.06); border-radius:18px; padding:28px;
       border:1px solid rgba(255,255,255,.08); backdrop-filter: blur(14px);
       transition: transform .2s ease, box-shadow .2s ease;
     }
-    .panel:hover{ transform:none; box-shadow:0 10px 24px rgba(0,0,0,.16); }
+    .panel:hover{ transform:translateY(-4px); box-shadow:0 14px 40px rgba(0,0,0,.18); }
 
     h1{
       font-size: clamp(2rem, 4vw, 3rem); font-weight:700;
@@ -120,7 +120,7 @@
     .contact-list { display:flex; flex-direction:column; gap:10px; }
 
     @media(max-width:700px){
-      .wrap{ padding:16px; margin:18px auto; gap:40px; }
+      .wrap{ padding:16px; margin:18px auto; gap:24px; }
       h1{ font-size:2.2rem; }
       .card .card-hero{ height:120px; }
     }
