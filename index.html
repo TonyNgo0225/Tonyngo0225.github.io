@@ -181,7 +181,7 @@
       <div class="hero-meta">
         <div>
           <h3>Hi, I'm Anthony Ngo</h3>
-          <h1>Data Analyst | Machine Learning Engineer (Student)</h1>
+          <h1>Data Analyst + AI Developer</h1>
           <p style="margin-top:8px; display:flex; gap:8px; align-items:center;">San Jose, CA
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="opacity:.95">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -256,25 +256,29 @@
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="section-education" class="panel">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-        <article class="timeline-item">
-          <div class="timeline-top">
-            <div>
-              <h3>Evergreen Valley College</h3>
-              <p class="muted">A.S.-T in Computer Science</p>
-            </div>
-            <p class="muted">San Jose, CA</p>
+    <!-- PRODUCTION EXPERIENCE -->
+    <section id="section-production" class="panel">
+      <h2 class="section-title">Production Experience</h2>
+      <div class="projects">
+        <article class="card">
+          <div class="card-hero">
+            <img src="welcome.webp" alt="VTA Transit Analytics" onerror="this.style.display='none'">
           </div>
-          <p>Currently preparing to transfer to San Jose State University Fall 2026 to continue with a B.S in Computer Science.</p>
+          <div class="card-body">
+            <h4 style="margin-bottom:8px;">Transit Analytics Pipeline</h4>
+            <p>Built and maintained a production-style analytics workflow for transit delays with data ingestion, feature engineering, and model serving concepts.</p>
+            <div style="margin-top:8px; color:rgba(255,255,255,.8); font-size:.92rem;">Python · Pandas · Scikit-learn · Flask</div>
+          </div>
+        </article>
 
-          <div class="courses-box">
-            <p><strong>Relevant Courses Completed:</strong></p>
-            <p>Mathematics Courses: MATH-066, MATH-067, MATH-073</p>
-            <p>Computer Science Courses: COMSC-075, COMSC-076, COMSC-077</p>
-            <p>Science Courses: PHYS-007A, PHYS-007B</p>
+        <article class="card">
+          <div class="card-hero" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+            <div style="color:white;font-weight:700;">Housing Data Dashboards</div>
+          </div>
+          <div class="card-body">
+            <h4 style="margin-bottom:8px;">Housing Analytics Reporting</h4>
+            <p>Prepared repeatable reporting and dashboard-ready data outputs for local housing trend analysis and stakeholder communication.</p>
+            <div style="margin-top:8px;color:rgba(255,255,255,.8);font-size:.92rem;">Pandas · Matplotlib · Tableau</div>
           </div>
         </article>
       </div>
@@ -319,6 +323,47 @@
       </div>
     </section>
 
+    <!-- EDUCATION -->
+    <section id="section-education" class="panel">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>Evergreen Valley College</h3>
+              <p class="muted">A.S.-T in Computer Science</p>
+            </div>
+            <p class="muted">San Jose, CA</p>
+          </div>
+          <p>Currently preparing to transfer to San Jose State University Fall 2026 to continue with a B.S in Computer Science.</p>
+
+          <div class="courses-box">
+            <p><strong>Relevant Courses Completed:</strong></p>
+            <p>Mathematics Courses: MATH-066, MATH-067, MATH-073</p>
+            <p>Computer Science Courses: COMSC-075, COMSC-076, COMSC-077</p>
+            <p>Science Courses: PHYS-007A, PHYS-007B</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & INVOLVEMENT -->
+    <section id="section-leadership" class="panel">
+      <h2 class="section-title">Leadership & Involvement</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>STEM & Campus Community Involvement</h3>
+              <p class="muted">Student Leadership</p>
+            </div>
+            <p class="muted">Ongoing</p>
+          </div>
+          <p>Supported campus and community STEM events, collaborated with peers on outreach activities, and helped represent programs at student-facing events.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="section-contact" class="panel">
       <h2 class="section-title">Contact</h2>
@@ -356,7 +401,7 @@
       const navpills = document.getElementById('navpills');
 
       // create pills
-      ['home','about','experience','skills','education','projects','contact'].forEach(name => {
+      ['home','about','experience','skills','production','projects','education','leadership','contact'].forEach(name => {
         navpills.appendChild(createPill(name[0].toUpperCase() + name.slice(1), name));
       });
 
@@ -381,7 +426,7 @@
           window.scrollTo({ top: allowed, behavior: 'auto' });
         }
       });
-      const sectionNames = ['home','about','experience','skills','education','projects','contact'];
+      const sectionNames = ['home','about','experience','skills','production','projects','education','leadership','contact'];
       const pillMap = Object.fromEntries(Array.from(navpills.querySelectorAll('.pill')).map(p => [p.dataset.target, p]));
       const sections = sectionNames
         .map(name => ({ name, el: document.getElementById('section-' + name) }))
