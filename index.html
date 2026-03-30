@@ -381,29 +381,41 @@
           window.scrollTo({ top: allowed, behavior: 'auto' });
         }
       });
+      const sectionNames = ['home','about','experience','skills','education','projects','contact'];
       const pillMap = Object.fromEntries(Array.from(navpills.querySelectorAll('.pill')).map(p => [p.dataset.target, p]));
+      const sections = sectionNames
+        .map(name => ({ name, el: document.getElementById('section-' + name) }))
+        .filter(item => item.el);
+
       const setActivePill = (name) => {
         Object.values(pillMap).forEach(p => p.classList.remove('active'));
         if (pillMap[name]) pillMap[name].classList.add('active');
       };
 
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id.replace('section-', '');
-            setActivePill(id);
-          }
+      const updateActiveFromScroll = () => {
+        const marker = window.scrollY + (window.innerHeight * 0.35);
+        let active = sections[0]?.name || 'home';
+        sections.forEach(({ name, el }) => {
+          if (el.offsetTop <= marker) active = name;
         });
-      }, { threshold: 0.45 });
+        setActivePill(active);
+      };
 
-      ['home','about','experience','skills','education','projects','contact'].forEach(name => {
+      window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
+      sectionNames.forEach(name => {
+        const pill = pillMap[name];
         const section = document.getElementById('section-' + name);
-        if (section) sectionObserver.observe(section);
+        if (!pill || !section) return;
+        pill.addEventListener('click', () => setActivePill(name));
       });
-      setActivePill('home');
+
+      updateActiveFromScroll();
 
       // remove scroll block after 1.2s to mimic original sequence
-      setTimeout(() => blockScroll = false, 1200);
+      setTimeout(() => {
+        blockScroll = false;
+        updateActiveFromScroll();
+      }, 1200);
     });
   </script>
 </body>
