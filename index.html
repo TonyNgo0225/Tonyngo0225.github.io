@@ -350,34 +350,6 @@
       </div>
     </section>
 
-    <!-- LEADERSHIP & INVOLVEMENT -->
-    <section id="section-leadership" class="panel">
-      <h2 class="section-title">Leadership & Involvement</h2>
-      <div class="timeline">
-        <article class="timeline-item">
-          <div class="timeline-top">
-            <div>
-              <h3>STEM & Campus Community Involvement</h3>
-              <p class="muted">Student Leadership</p>
-            </div>
-            <p class="muted">Ongoing</p>
-          </div>
-          <p>Supported campus and community STEM events, collaborated with peers on outreach activities, and helped represent programs at student-facing events.</p>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-top">
-            <div>
-              <h3>STEM & Campus Community Involvement</h3>
-              <p class="muted">Student Leadership</p>
-            </div>
-            <p class="muted">Ongoing</p>
-          </div>
-          <p>Supported campus and community STEM events, collaborated with peers on outreach activities, and helped represent programs at student-facing events.</p>
-        </article>
-      </div>
-    </section>
-
     <!-- CONTACT -->
     <section id="section-contact" class="panel">
       <h2 class="section-title">Contact</h2>
@@ -415,7 +387,7 @@
       const navpills = document.getElementById('navpills');
 
       // create pills
-      ['home','about','experience','skills','production','projects','education','leadership','contact'].forEach(name => {
+      ['home','about','experience','skills','production','projects','education','contact'].forEach(name => {
         navpills.appendChild(createPill(name[0].toUpperCase() + name.slice(1), name));
       });
 
@@ -440,7 +412,7 @@
           window.scrollTo({ top: allowed, behavior: 'auto' });
         }
       });
-      const sectionNames = ['home','about','experience','skills','production','projects','education','leadership','contact'];
+      const sectionNames = ['home','about','experience','skills','production','projects','education','contact'];
       const pillMap = Object.fromEntries(Array.from(navpills.querySelectorAll('.pill')).map(p => [p.dataset.target, p]));
       const sections = sectionNames
         .map(name => ({ name, el: document.getElementById('section-' + name) }))
