@@ -176,8 +176,16 @@
     .card .card-body { padding:16px; }
 
     /* skills */
-    .skills { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:12px; }
-    .skill { padding:12px; border-radius:10px; background:rgba(255,255,255,.03); text-align:center; }
+    .skills { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+    .skill-category {
+      padding:16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .skill-category h3 { margin-bottom:12px; }
+    .skill-list { display:flex; flex-wrap:wrap; gap:10px; }
+    .skill { padding:10px 12px; border-radius:10px; background:rgba(255,255,255,.03); text-align:center; }
 
     /* contact */
     .contact-list { display:flex; flex-direction:column; gap:10px; }
@@ -298,12 +306,57 @@
     <section id="section-skills" class="panel">
       <h2 class="section-title">Skills</h2>
       <div class="skills">
-        <div class="skill">Python</div>
-        <div class="skill">SQL</div>
-        <div class="skill">Machine Learning</div>
-        <div class="skill">Data Visualization</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Git</div>
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <div class="skill-list">
+            <div class="skill">Python</div>
+            <div class="skill">SQL</div>
+            <div class="skill">Java</div>
+            <div class="skill">C++</div>
+            <div class="skill">JavaScript</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Data Science & AI</h3>
+          <div class="skill-list">
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Pandas</div>
+            <div class="skill">NumPy</div>
+            <div class="skill">Matplotlib</div>
+            <div class="skill">Jupyter Notebook</div>
+            <div class="skill">Data Visualization</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Web Development</h3>
+          <div class="skill-list">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Pantheon Site</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Tools</h3>
+          <div class="skill-list">
+            <div class="skill">Git</div>
+            <div class="skill">Excel</div>
+            <div class="skill">PowerPoint</div>
+            <div class="skill">Word</div>
+            <div class="skill">Canva</div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>AI Tools</h3>
+          <div class="skill-list">
+            <div class="skill">Ivy</div>
+            <div class="skill">Gravyty</div>
+          </div>
+        </div>
       </div>
     </section>
 
