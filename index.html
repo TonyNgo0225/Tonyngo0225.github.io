@@ -80,7 +80,7 @@
     }
 
     /* --- page container --- */
-    .wrap { max-width:920px; margin:40px auto; padding:28px; display:flex; flex-direction:column; gap:48px; }
+    .wrap { max-width:920px; margin:40px auto; padding:28px 28px 140px; display:flex; flex-direction:column; gap:48px; }
     .panel {
       background: rgba(255,255,255,.06); border-radius:18px; padding:28px;
       border:1px solid rgba(255,255,255,.08); backdrop-filter: blur(14px);
@@ -166,6 +166,11 @@
     /* projects grid */
     .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:20px; }
     .card { overflow:hidden; border-radius:12px; background:linear-gradient(135deg,#222638 0%, #1b1f2a 100%); color:#fff; border:1px solid rgba(255,255,255,.04); }
+    .card-link { color: inherit; display:block; text-decoration:none; }
+    .card-link .card { height:100%; transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+    .card-link:hover .card,
+    .card-link:focus-visible .card { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.28); border-color:rgba(123,236,255,.45); }
+    .card-link:focus-visible { border-radius:12px; outline:2px solid rgba(123,236,255,.85); outline-offset:4px; }
     .card .card-hero { height:160px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#4facfe,#43e97b); }
     .card .card-hero img{ width:100%; height:100%; object-fit:cover; display:block; }
     .card .card-body { padding:16px; }
@@ -178,7 +183,7 @@
     .contact-list { display:flex; flex-direction:column; gap:10px; }
 
     @media(max-width:700px){
-      .wrap{ padding:16px; margin:18px auto; gap:28px; }
+      .wrap{ padding:16px 16px 130px; margin:18px auto; gap:28px; }
       .wrap .panel + .panel { margin-top: 14px; }
       h1{ font-size:2.2rem; }
       .card .card-hero{ height:120px; }
@@ -230,9 +235,7 @@
     <!-- ABOUT -->
     <section id="section-about" class="panel">
       <h2 class="section-title">About</h2>
-      <p>I enjoy solving problems through data and software. My work combines analytics, machine learning, and full-stack development to build practical solutions, from AI chatbots and transit prediction models to data dashboards and web applications.
-
-I'm continuously learning new technologies and enjoy collaborating on projects that create measurable impact for users and organizations.</p>
+      <p>I enjoy solving problems through data and software. My work combines analytics, machine learning, and full-stack development to build practical solutions, from AI chatbots and transit prediction models to data dashboards and web applications.<br><br>I'm continuously learning new technologies and enjoy collaborating on projects that create measurable impact for users and organizations.</p>
     </section>
 
     <!-- WORK EXPERIENCE -->
@@ -286,7 +289,6 @@ I'm continuously learning new technologies and enjoy collaborating on projects t
           <div class="reference" aria-label="STEM Instructor reference">
             <span class="reference-title">Reference</span>
             <p>Unavailable</p>
-            <p></p>
           </div>
         </article>
       </div>
@@ -309,27 +311,31 @@ I'm continuously learning new technologies and enjoy collaborating on projects t
     <section id="section-production" class="panel">
       <h2 class="section-title">Production Experience</h2>
       <div class="projects">
-        <article class="card">
-          <div class="card-hero" style="background:#ffffff;">
-            <img src="assets/png_evc_program_aspire_pluss_logo_send_final_horizontal.png" alt="ASPIRE+PLLUS logo" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <h4 style="margin-bottom:8px;">ASPIRE+PLLUS Website</h4>
-            <p>Maintained and updated the ASPIRE+PLLUS website along with adding new content when needed.</p>
-            <div style="margin-top:8px; color:rgba(255,255,255,.8); font-size:.92rem;">Pantheonsite · CSS</div>
-          </div>
-        </article>
+        <a class="card-link" href="https://evc.edu/services/aspire/index.html" target="_blank" rel="noopener noreferrer" aria-label="Open ASPIRE+PLLUS Website">
+          <article class="card">
+            <div class="card-hero" style="background:#ffffff;">
+              <img src="assets/png_evc_program_aspire_pluss_logo_send_final_horizontal.png" alt="ASPIRE+PLLUS logo" onerror="this.style.display='none'">
+            </div>
+            <div class="card-body">
+              <h4 style="margin-bottom:8px;">ASPIRE+PLLUS Website</h4>
+              <p>Maintained and updated the ASPIRE+PLLUS website along with adding new content when needed.</p>
+              <div style="margin-top:8px; color:rgba(255,255,255,.8); font-size:.92rem;">Pantheonsite · CSS</div>
+            </div>
+          </article>
+        </a>
 
-        <article class="card">
-          <div class="card-hero" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
-            <img src="assets/Screenshot (2516).png" alt="BEEF Club website screenshot" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <h4 style="margin-bottom:8px;">BEEF Club Website</h4>
-            <p>Update and maintain the BEEF Club Website</p>
-            <div style="margin-top:8px;color:rgba(255,255,255,.8);font-size:.92rem;">Google Sites</div>
-          </div>
-        </article>
+        <a class="card-link" href="https://www.instagram.com/evc.beef/" target="_blank" rel="noopener noreferrer" aria-label="Open BEEF Club Website">
+          <article class="card">
+            <div class="card-hero" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+              <img src="assets/Screenshot (2516).png" alt="BEEF Club website screenshot" onerror="this.style.display='none'">
+            </div>
+            <div class="card-body">
+              <h4 style="margin-bottom:8px;">BEEF Club Website</h4>
+              <p>Update and maintain the BEEF Club Website</p>
+              <div style="margin-top:8px;color:rgba(255,255,255,.8);font-size:.92rem;">Google Sites</div>
+            </div>
+          </article>
+        </a>
       </div>
     </section>
 
@@ -337,27 +343,31 @@ I'm continuously learning new technologies and enjoy collaborating on projects t
     <section id="section-projects" class="panel">
       <h2 class="section-title">Projects</h2>
       <div class="projects">
-        <article class="card">
-          <div class="card-hero">
-            <img src="assets/VTA_light_rail_vehicle_at_Winchester_station.jpg" alt="VTA Transit Analytics" onerror="this.style.display='none'">
-          </div>
-          <div class="card-body">
-            <h4 style="margin-bottom:8px;">VTA Transit Analytics & Delay Prediction</h4>
-            <p>Data analytics + ML pipeline for predicting VTA delays using transit telemetry and schedule data.</p>
-            <div style="margin-top:8px; color:rgba(255,255,255,.8); font-size:.92rem;">Python · Pandas · Scikit-learn · Flask</div>
-          </div>
-        </article>
+        <a class="card-link" href="https://github.com/TonyNgo0225" target="_blank" rel="noopener noreferrer" aria-label="Open VTA Transit Analytics & Delay Prediction project">
+          <article class="card">
+            <div class="card-hero">
+              <img src="assets/VTA_light_rail_vehicle_at_Winchester_station.jpg" alt="VTA Transit Analytics" onerror="this.style.display='none'">
+            </div>
+            <div class="card-body">
+              <h4 style="margin-bottom:8px;">VTA Transit Analytics & Delay Prediction</h4>
+              <p>Data analytics + ML pipeline for predicting VTA delays using transit telemetry and schedule data.</p>
+              <div style="margin-top:8px; color:rgba(255,255,255,.8); font-size:.92rem;">Python · Pandas · Scikit-learn · Flask</div>
+            </div>
+          </article>
+        </a>
 
-        <article class="card">
-          <div class="card-hero" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
-            <div style="color:white;font-weight:700;">San Jose Housing Analytics</div>
-          </div>
-          <div class="card-body">
-            <h4 style="margin-bottom:8px;">San Jose Housing Market Analytics</h4>
-            <p>Exploratory data analysis and visualizations for local housing market trends. (Modify with your dataset links.)</p>
-            <div style="margin-top:8px;color:rgba(255,255,255,.8);font-size:.92rem;">Pandas · Matplotlib · Tableau</div>
-          </div>
-        </article>
+        <a class="card-link" href="https://www.sanjoseca.gov/your-government/departments-offices/housing/data/housing-market" target="_blank" rel="noopener noreferrer" aria-label="Open San Jose Housing Market Analytics project">
+          <article class="card">
+            <div class="card-hero" style="background:linear-gradient(135deg,#f093fb,#f5576c);">
+              <div style="color:white;font-weight:700;">San Jose Housing Analytics</div>
+            </div>
+            <div class="card-body">
+              <h4 style="margin-bottom:8px;">San Jose Housing Market Analytics</h4>
+              <p>Exploratory data analysis and visualizations for local housing market trends. (Modify with your dataset links.)</p>
+              <div style="margin-top:8px;color:rgba(255,255,255,.8);font-size:.92rem;">Pandas · Matplotlib · Tableau</div>
+            </div>
+          </article>
+        </a>
 
       </div>
     </section>
